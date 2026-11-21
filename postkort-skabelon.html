@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<title>Postkort-skabelon (A6, dobbeltsidet)</title>
+<style>
+  @page { size: 148mm 105mm; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #e5e5e5; }
+  .page {
+    width: 148mm; height: 105mm;
+    background: #fff; overflow: hidden; position: relative;
+    margin: 10mm auto; box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    page-break-after: always;
+  }
+  @media print { body { background: #fff; } .page { margin: 0; box-shadow: none; } .hint { display: none; } }
+  .hint { position: fixed; top: 4px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #666; }
+
+  /* ---------- FORSIDE: logo + 2x3 billedgitter ---------- */
+  .front { display: flex; flex-direction: column; }
+  .front-header { display: flex; align-items: center; gap: 4mm; padding: 4mm 5mm 2.5mm 5mm; }
+  .logo {
+    font-size: 16pt; font-weight: 800; letter-spacing: 2px; color: #222;
+  }
+  .logo-sub { font-size: 6pt; letter-spacing: 1.5px; color: #888; text-transform: uppercase; }
+  .grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1mm;
+    padding: 1.5mm 3mm 3mm 3mm;
+  }
+  .ph {
+    background: #f2f2f2;
+    border: 0.3mm dashed #bbb;
+    display: flex; align-items: center; justify-content: center;
+    color: #999; font-size: 7pt; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .ph img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- BAGSIDE: infotekst + QR ---------- */
+  .back { padding: 6mm 7mm; display: flex; flex-direction: column; }
+  .back-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .back-logo { display: flex; flex-direction: column; }
+  .qr-block { display: flex; align-items: center; gap: 3mm; }
+  .qr-block img { width: 20mm; height: 20mm; }
+  .qr-text { font-size: 7.5pt; color: #444; }
+  .back h2 { font-size: 9pt; letter-spacing: 1.5px; color: #222; text-transform: uppercase; margin-bottom: 3mm; }
+  .back section { margin-top: 4.5mm; }
+  .back section p { font-size: 7pt; line-height: 1.5; color: #444; max-width: 92mm; }
+  .contact { display: flex; gap: 8mm; flex-wrap: wrap; margin-top: 4.5mm; }
+  .contact div { font-size: 7.5pt; color: #222; font-weight: 600; letter-spacing: 0.5px; }
+  .contact span { display: block; font-size: 6pt; font-weight: 400; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+  .badges { display: flex; gap: 4mm; align-items: center; margin-top: auto; padding-top: 3mm; }
+  .badge {
+    border: 0.3mm solid #ccc; border-radius: 50%;
+    width: 11mm; height: 11mm; display: flex; align-items: center; justify-content: center;
+    font-size: 4.5pt; color: #777; text-align: center; padding: 1mm; text-transform: uppercase; line-height: 1.3;
+  }
+  .edit-note { color: #d33; }
+</style>
+</head>
+<body>
+<div class="hint">Print: A6 (148 &times; 105 mm), to sider &ndash; forside og bagside. Erstat pladsholdere (.edit-note = rød) med egne billeder/tekster.</div>
+
+<!-- ================= FORSIDE ================= -->
+<div class="page front">
+  <div class="front-header">
+    <div>
+      <div class="logo edit-note">DIT BRAND</div>
+      <div class="logo-sub edit-note">DIN SLOGAN HER</div>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="ph edit-note">Foto 1</div>
+    <div class="ph edit-note">Foto 2</div>
+    <div class="ph edit-note">Foto 3</div>
+    <div class="ph edit-note">Foto 4</div>
+    <div class="ph edit-note">Foto 5</div>
+    <div class="ph edit-note">Foto 6</div>
+  </div>
+</div>
+
+<!-- ================= BAGSIDE ================= -->
+<div class="page back">
+  <div class="back-top">
+    <div class="back-logo">
+      <div class="logo edit-note">DIT BRAND</div>
+      <div class="logo-sub edit-note">DIN SLOGAN HER</div>
+    </div>
+    <div class="qr-block">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6AQAAAACgl2eQAAABj0lEQVR4nO2ZMW7EIBBF3wR6+wY5CrlybmDfCMpIWD8FGG+SIpvGActTILN+xdfoL8yMoYYTTBIhQllKvPBL3MAeQZIUnaQIWqa2ldSHyFGAZGZvwO7JrWzNzJ+m4QKAPx4NXDYAkc7UcEFg+jAA7O3/NAwLeJgEDyacItWYZ2m4BtDCiRCP5UwN1wC8fvy0mZojWXsQOQRQqqDdhNWOWoBylXchcgjAA5uvJkyziQRWD8vN6/bkswBSBEqPg5MWQFKmbnsQOQSAlimXzqZeNsqlW6wtTw8ihwBqJg9jBkladnf2IXIIoPpvmdrfGah9o/LtyeeBeiaGfWRRchruc/LPQMlkmQAtexV0LHcmnwZ86bRJPlOL8uxZZ2CdXe5D5BAAavE46ZX2u6cHkWMAVsNDiJuxzk6Q2rStC5EjAF9m5spIsZZClGq9B5FDAO12ad9xShLP1HAN4GFmLpLPIs0cSx8ihwPWGQAns9mJ9fWuzP8AfJ+ZW3jfTKTZyssuRA4BtNiHF9Aqo3iShmsAn9X/BkdT4AcQAAAAAElFTkSuQmCC" alt="QR-kode">
+      <div class="qr-text edit-note">Skann QR-koden<br>og l&aelig;s mere.</div>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="edit-note">OVERSKRIFT 1 &ndash; F.eks. LEVERING / RETUR</h2>
+    <p class="edit-note">Kort brødtekst: forklar her hvad kunden kan gøre, f.eks. enkel retur via jeres returportal, leveringstid, garanti eller plejevejledning.</p>
+  </section>
+
+  <section>
+    <h2 class="edit-note">OVERSKRIFT 2 &ndash; F.eks. MATERIALE / KVALITET</h2>
+    <p class="edit-note">Kort brødtekst: nævn materiale, certificeringer eller dokumentation, f.eks.(&quot;NATURLIGT ... Oeko-Tex Standard 100&quot;).</p>
+  </section>
+
+  <div class="contact">
+    <div><span>Hjemmeside</span><span class="edit-note" style="font-size:7.5pt;color:#222;text-transform:none;">DITDOMAINE.DK</span></div>
+    <div><span>E-mail</span><span class="edit-note" style="font-size:7.5pt;color:#222;text-transform:none;">SUPPORT@DITDOMAINE.DK</span></div>
+    <div><span>Andre sites</span><span class="edit-note" style="font-size:7.5pt;color:#222;text-transform:none;">DITDOMAINE.SE / DITDOMAINE.NO</span></div>
+  </div>
+
+  <div class="badges">
+    <div class="badge edit-note">Dit logo / m&aelig;rke 1</div>
+    <div class="badge edit-note">Dit logo / m&aelig;rke 2</div>
+    <div class="badge edit-note">Din certifikat-pladsholder</div>
+  </div>
+</div>
+</body>
+</html>
